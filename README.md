@@ -1,17 +1,17 @@
 <div align="center">
   <h1><code>wasi-nn</code></h1>
 
-  <strong>A <a href="https://bytecodealliance.org/">Bytecode Alliance</a> project</strong>
-
   <p><strong>High-level bindings for writing wasi-nn applications</strong></p>
 
   <p>
-    <a href="https://github.com/gusye1234/wasi-nn-openvino-demo/actions?query=workflow%3ACI++">
-      <img src="https://github.com/gusye1234/wasi-nn-openvino-demo/workflows/main.yaml/badge.svg" alt="CI status"/>
+    <a href="https://github.com/gusye1234/Wasi-NN-Examples/actions?query=workflow%3ACI++">
+      <img src="https://github.com/gusye1234/Wasi-NN-Examples/actions/workflows/main.yaml/badge.svg" alt="CI status"/>
     </a>
   </p>
-
 </div>
+
+> This project is greatly adapted from [wasi-nn-guest](https://github.com/radu-matei/wasi-nn-guest)
+
 
 ### Introduction
 
