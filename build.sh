@@ -16,7 +16,6 @@ else
     cargo build --release --target=wasm32-wasi
     mkdir -p $WASI_NN_DIR/rust/examples/classification-example/build
     RUST_BUILD_DIR=$(realpath $WASI_NN_DIR/rust/examples/classification-example/build/)
-    cp -rn images $RUST_BUILD_DIR
     pushd examples/classification-example
     cargo build --release --target=wasm32-wasi
     cp target/wasm32-wasi/release/wasi-nn-example.wasm $RUST_BUILD_DIR
@@ -34,6 +33,4 @@ else
     # Manually run .wasm
     echo "Running example with WasmEdge ${WASMEDGE}"
     $WASMEDGE --dir fixture:$RUST_BUILD_DIR --dir .:. wasi-nn-example.wasm
-    # valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose /root/WasmEdge/build/tools/wasmedge/wasmedge --dir fixture:$RUST_BUILD_DIR wasi-nn-example.wasm
-    # /root/wasmtime/target/debug/wasmtime run --mapdir fixture::$RUST_BUILD_DIR wasi-nn-example.wasm --wasi-modules=experimental-wasi-nn
 fi
