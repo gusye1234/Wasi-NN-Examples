@@ -1,4 +1,4 @@
-rust/examples/classification-example/build
-rust/examples/classification-example/target
+rust/examples/mobilenet-base/build
+rust/examples/mobilenet-base/target
 
 .DS_Store
