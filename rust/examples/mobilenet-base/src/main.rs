@@ -36,7 +36,7 @@ fn infer_image() {
 
     // Load a tensor that precisely matches the graph input tensor (see
     // `fixture/frozen_inference_graph.xml`).
-    let tensor_data = fs::read("fixture/tensor.bgr").unwrap();
+    let tensor_data = fs::read("fixture/tensor-1x224x224x3-f32.bgr").unwrap();
     println!("Read input tensor, size in bytes: {}", tensor_data.len());
     // for i in 0..10{
     //     println!("tensor -> {}", tensor_data[i]);

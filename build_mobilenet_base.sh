@@ -27,8 +27,8 @@ else
     if [ ! -f $RUST_BUILD_DIR/mobilenet.xml ]; then
         wget --no-clobber --directory-prefix=$RUST_BUILD_DIR $FIXTURE/mobilenet.xml
     fi
-    if [ ! -f $RUST_BUILD_DIR/tensor.bgr ]; then
-        wget --no-clobber $FIXTURE/tensor-1x224x224x3-f32.bgr --output-document=$RUST_BUILD_DIR/tensor.bgr
+    if [ ! -f $RUST_BUILD_DIR/tensor-1x224x224x3-f32.bgr ]; then
+        wget --no-clobber $FIXTURE/tensor-1x224x224x3-f32.bgr --output-document=$RUST_BUILD_DIR/tensor-1x224x224x3-f32.bgr
     fi
     # Manually run .wasm
     echo "Running example with WasmEdge ${WASMEDGE}"
