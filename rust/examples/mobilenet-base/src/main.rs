@@ -1,6 +1,5 @@
-// use image::{DynamicImage};
-// use image::io::Reader;
 use std::convert::TryInto;
+use std::env;
 use std::fs;
 use wasi_nn;
 mod imagenet_classes;
@@ -15,10 +14,15 @@ fn main_entry() {
 }
 
 fn infer_image() {
-    let xml = fs::read_to_string("fixture/mobilenet.xml").unwrap();
+    let args: Vec<String> = env::args().collect();
+    let model_xml_name: &str = &args[1];
+    let model_bin_name: &str = &args[2];
+    let tensor_name: &str = &args[3];
+
+    let xml = fs::read_to_string(model_xml_name).unwrap();
     println!("Read graph XML, size in bytes: {}", xml.len());
 
-    let weights = fs::read("fixture/mobilenet.bin").unwrap();
+    let weights = fs::read(model_bin_name).unwrap();
     println!("Read graph weights, size in bytes: {}", weights.len());
 
     let graph = unsafe {
@@ -36,7 +40,7 @@ fn infer_image() {
 
     // Load a tensor that precisely matches the graph input tensor (see
     // `fixture/frozen_inference_graph.xml`).
-    let tensor_data = fs::read("fixture/tensor-1x224x224x3-f32.bgr").unwrap();
+    let tensor_data = fs::read(tensor_name).unwrap();
     println!("Read input tensor, size in bytes: {}", tensor_data.len());
     // for i in 0..10{
     //     println!("tensor -> {}", tensor_data[i]);

@@ -32,5 +32,5 @@ else
     fi
     # Manually run .wasm
     echo "Running example with WasmEdge ${WASMEDGE}"
-    $WASMEDGE --dir fixture:$RUST_BUILD_DIR --dir .:. mobilenet-base-example.wasm
+    $WASMEDGE --dir fixture:$RUST_BUILD_DIR --dir .:. mobilenet-base-example.wasm "fixture/mobilenet.xml" "fixture/mobilenet.bin" "fixture/tensor-1x224x224x3-f32.bgr"
 fi
